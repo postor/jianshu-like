@@ -3,8 +3,7 @@ import Image from 'next/image'
 
 const Logo = () => {
   return <Link href="/">
-    <a style={{
-      position: 'absolute',
+    <a className='logo' style={{
       top: 0,
       left: 0
     }}>
