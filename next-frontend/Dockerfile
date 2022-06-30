@@ -1,10 +1,10 @@
-ARG API_BASE=http://localhost:3000
+ARG API_BASE=
 
 FROM node:lts-alpine
 
 WORKDIR /app
 
-COPY  package*.json .
+COPY  package*.json ./
 
 RUN npm i
 
