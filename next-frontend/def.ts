@@ -22,11 +22,42 @@ export interface IWriter {
   image: string,
   words: number,
   likes: number,
+  money: number,
 }
 
 export interface IArticleAuthor {
   article: IArticle,
   author: IWriter
+}
+
+export async function loadRecommandArticles(): Promise<IArticle[]> {
+  // TODO: fake data for now
+  let res = await axios.get(apiPath('/api/article'), {
+    params: {
+      pageSize: 5,
+      fields: [
+        '_id',
+        'title',
+        'reads'].join(','),
+      sort: '-updated',
+    }
+  })
+  return res.data.rows || []
+}
+
+export async function loadAuthorArticles(authorID: string): Promise<IArticle[]> {
+  // TODO: fake data for now
+  let res = await axios.get(apiPath('/api/article'), {
+    params: {
+      pageSize: 5,
+      fields: [
+        '_id',
+        'title',
+        'reads'].join(','),
+      sort: '-updated',
+    }
+  })
+  return res.data.rows || []
 }
 
 export async function loadWriters(): Promise<IWriter[]> {

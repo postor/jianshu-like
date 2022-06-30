@@ -23,7 +23,7 @@ module.exports = {
         const coll = db.collection("users")
         return await coll.aggregate([{ $sample: { size: 10 } }]).toArray()
       }
-    }
+    },
   },
 
   /**
@@ -58,6 +58,7 @@ module.exports = {
         image: '/images/writer-default.webp',
         words: 10244,
         likes: 40964,
+        money: 1024,
       }
 
       for (let i = 0; i < 50; i++) {

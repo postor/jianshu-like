@@ -47,6 +47,8 @@ module.exports = {
       async handler(ctx) {
         console.log(this.methods)
         let article = await ctx.call('article.get', { id: ctx.params.id });
+
+        // TODO: fake data for now
         let author = article.authorid
           ? await ctx.call('user.get', { id: article.authorid })
           : {
@@ -54,6 +56,7 @@ module.exports = {
             image: '/images/writer-default.webp',
             words: 10244,
             likes: 40964,
+            money: 1024,
           }
 
         return { article, author }

@@ -45,7 +45,7 @@ const LeftIcons: FC<{ likes: number, paid: number }> = ({ likes, paid }) => {
         </ul>
       </div>
       <style jsx scoped>{`
-
+      
 
       li {
         display: flex;
@@ -53,6 +53,7 @@ const LeftIcons: FC<{ likes: number, paid: number }> = ({ likes, paid }) => {
         justify-content: center;
         text-align: center;
         row-gap: 5px;
+        color: #969696;
       }
 
       li b {
@@ -63,8 +64,7 @@ const LeftIcons: FC<{ likes: number, paid: number }> = ({ likes, paid }) => {
         border-radius: 50%;
         line-height: 60px;
         font-size: 28px;
-        background: #fff;
-        
+        background: #fff;        
       }
 
       `}</style>

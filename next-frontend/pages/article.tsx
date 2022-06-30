@@ -5,9 +5,11 @@ import ReactMarkdown from "react-markdown"
 import { IArticle, IWriter, loadArticle } from "../def"
 import IconNum from '../components/page/index/IconNum'
 import LeftIcons from "../components/page/article/DLeftIcons"
+import AuthorArticles from "../components/page/article/AuthorArticles"
+import RecommandArticles from "../components/page/article/RecommandArticles"
 
 const Article: FC<{ article: IArticle, author: IWriter }> = ({ article, author }) => {
-  
+
   return <div className="with-side-content">
     <div className="main-content">
       <h1>{article.title}</h1>
@@ -30,7 +32,9 @@ const Article: FC<{ article: IArticle, author: IWriter }> = ({ article, author }
       <LeftIcons likes={article.like} paid={article.paid} />
     </div>
     <div className="side-content">
-
+      <AuthorArticles author={author} />
+      <div style={{height: 10}}></div>
+      <RecommandArticles />
     </div>
     <style jsx global>{`
     body {
