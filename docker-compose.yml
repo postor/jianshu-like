@@ -5,8 +5,7 @@ services:
     build:
       context: ./next-frontend
       args:
-        API_BASE: '/'
-        API_BASE_BACKEND: http://api:3000
+        API_BASE: http://api:3000
     image: next-frontend
     labels:
       - "traefik.enable=true"

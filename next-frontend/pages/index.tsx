@@ -14,9 +14,11 @@ const Index = ({ list }) => {
   </div>
 }
 
-Index.getInitialProps = async () => {
+export async function getServerSideProps()  {
   let list = await loadArticles()
-  return { list }
+  return {
+    props: { list }
+  }
 }
 
 export default Index

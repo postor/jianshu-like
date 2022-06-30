@@ -33,7 +33,7 @@ const Article: FC<{ article: IArticle, author: IWriter }> = ({ article, author }
     </div>
     <div className="side-content">
       <AuthorArticles author={author} />
-      <div style={{height: 10}}></div>
+      <div style={{ height: 10 }}></div>
       <RecommandArticles />
     </div>
     <style jsx global>{`
@@ -98,9 +98,11 @@ const Article: FC<{ article: IArticle, author: IWriter }> = ({ article, author }
   </div>
 }
 
-/* @ts-ignore */
-Article.getInitialProps = async ({ query }) => {
-  return await loadArticle(query.id)
+
+export async function getServerSideProps({ query }) {
+  return {
+    props: await loadArticle(query.id)
+  }
 }
 
 export default Article
