@@ -26,6 +26,8 @@
   },
   "dependencies": {
     "moleculer": "^0.14.16",
+    "moleculer-db": "^0.8.18",
+    "moleculer-db-adapter-mongo": "^0.4.14",
     "moleculer-elasticsearch": "^1.1.6",
     "moleculer-web": "^0.10.2",
     "nats": "^2.2.0"
