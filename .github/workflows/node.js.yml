@@ -28,6 +28,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: next-frontend/package-lock.json
     - run: ls
     - run: npm ci
     - run: npm run build 
