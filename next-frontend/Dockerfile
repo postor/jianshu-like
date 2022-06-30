@@ -1,5 +1,4 @@
-ARG API_BASE=/
-ARG API_BASE_BACKEND=http://api:3000
+ARG API_BASE=http://api:3000
 
 FROM node:lts-alpine
 
