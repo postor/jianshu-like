@@ -74,6 +74,8 @@ services:
       # named volumes
       - mongodb:/data/db
       - mongoconfig:/data/configdb
+    networks:
+      - internal
 
 
 
