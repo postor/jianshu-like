@@ -99,5 +99,5 @@ export async function loadArticles(pageSize = 20, updated = new Date().getTime()
 
 
 function apiPath(path: string) {
-  return (process.env.API_BASE || 'http://localhost:3000') + path
+  return (process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3000') + path
 }
