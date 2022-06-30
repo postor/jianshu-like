@@ -1,2 +1,13 @@
-# jianshu-with-shackjs
-jianshu with shackjs
+# jianshu-like
+
+## start 
+
+```
+docker-compose up -d
+```
+
+## jest
+
+```
+yarn test
+```
