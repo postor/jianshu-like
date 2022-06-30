@@ -24,6 +24,15 @@ a {
   text-align: center;
 }
 
+#portal {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  overflow: visible;
+  position: absolute;
+}
+
 .nav li i {
   display: none
 }
@@ -59,6 +68,7 @@ a {
 .navbar-toggle {
   display: none;
 }
+
 /* 
 .cc .main-content {
   width: 625px;
@@ -89,7 +99,7 @@ a {
   .search-input:focus {
     width: 160px;
   }
-  
+
   .with-side-content .main-content {
     width: 500px;
   }

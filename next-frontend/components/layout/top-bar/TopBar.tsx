@@ -11,6 +11,7 @@ const TopBar = () => {
     right: 0,
     borderBottom: '1px solid #f5f5f5',
     height: 55,
+    background: '#fff',
   }}>
     <Logo />
     <CenterContent>

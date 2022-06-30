@@ -24,6 +24,9 @@ describe("Test 'article' service", () => {
         paid: 23,
         content: 'content content content content content content content content ',
         image: '/images/test.png',
+        updated: new Date().getTime(),
+        words: 0,
+        reads: 0
       });
 
       expect(res).not.toBeFalsy();

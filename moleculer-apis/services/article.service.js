@@ -29,13 +29,36 @@ module.exports = {
         paid: 'number',
         content: 'string',
         image: 'string',
-        updated: 'number'
+        updated: 'number',
+        words: 'number',
+        reads: 'number'
       },
       /** @param {Context} ctx  */
       async handler(ctx) {
         return await this.actions.create(ctx.params);
       }
-    }
+    },
+    withAuthor: {
+      rest: "/withAuthor",
+      params: {
+        id: 'string',
+      },
+      /** @param {Context} ctx  */
+      async handler(ctx) {
+        console.log(this.methods)
+        let article = await ctx.call('article.get', { id: ctx.params.id });
+        let author = article.authorid
+          ? await ctx.call('user.get', { id: article.authorid })
+          : {
+            name: 'sample user',
+            image: '/images/writer-default.webp',
+            words: 10244,
+            likes: 40964,
+          }
+
+        return { article, author }
+      }
+    },
   },
 
   /**
@@ -65,6 +88,9 @@ module.exports = {
   async started() {
     let list = await this.actions.list();
     if (0 === list.total) {
+      let content = new Array(50)
+        .fill('content content content content content content content content ')
+        .join(' ')
       let sample = {
         title: 'title title title title title title title title title ',
         desc: 'desc desc desc desc desc desc desc desc desc desc desc desc .....',
@@ -73,16 +99,17 @@ module.exports = {
         comments: 93,
         like: 47,
         paid: 23,
-        content: 'content content content content content content content content ',
+        content,
         image: '/images/article-card-default.jpg',
         updated: 0,
         words: 1024,
+        reads: 1024,
       }
       let updated = new Date().getTime()
 
       for (let i = 0; i < 50; i++) {
         updated -= 86400000
-        await this.actions.create({
+        await this.actions.validCreate({
           ...sample,
           updated
         })

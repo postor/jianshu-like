@@ -13,6 +13,7 @@ export interface IArticle {
   image: string,
   updated: number,
   words: number,
+  reads: number,
 }
 
 export interface IWriter {
@@ -23,11 +24,24 @@ export interface IWriter {
   likes: number,
 }
 
-export async function loadWriters(): Promise<IWriter[]> {
-  let res = await axios.get(apiPath('/api/user/random'))
-  return res.data|| []
+export interface IArticleAuthor {
+  article: IArticle,
+  author: IWriter
 }
 
+export async function loadWriters(): Promise<IWriter[]> {
+  let res = await axios.get(apiPath('/api/user/random'))
+  return res.data || []
+}
+
+export async function loadArticle(id: string): Promise<IArticleAuthor> {
+  let res = await axios.get(apiPath('/api/article/withAuthor'), {
+    params: {
+      id
+    }
+  })
+  return res.data
+}
 
 
 export async function loadArticles(pageSize = 20, updated = new Date().getTime()): Promise<IArticle[]> {
