@@ -8,8 +8,7 @@ RUN npm i
 
 COPY . .
 
-ENV NEXT_PUBLIC_API_BASE=/
-ENV NEXT_PUBLIC_API_BASE_BACKEND=http://api:3000
+COPY .env.local.docker ./.env.local
 
 RUN npm run build
 
