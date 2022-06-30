@@ -99,5 +99,7 @@ export async function loadArticles(pageSize = 20, updated = new Date().getTime()
 
 
 function apiPath(path: string) {
-  return (process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3000') + path
+  return typeof window === 'undefined'
+    ? (process.env.NEXT_PUBLIC_API_BASE_BACKEND || 'http://localhost:3000') + path
+    : (process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3000') + path
 }
