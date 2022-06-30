@@ -53,4 +53,4 @@ jobs:
         cache: 'npm'
         cache-dependency-path: moleculer-apis/package-lock.json
     - run: npm ci
-    - run: npm run test 
+    - run: yarn jest
