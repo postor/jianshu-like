@@ -46,6 +46,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Create mongo Docker container
+        id: build_mongo_docker
+        uses: DigiPie/mongo-action@v1.0.1
+        with:
+          image-version: latest
+          port: 27017
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -53,4 +59,4 @@ jobs:
         cache: 'npm'
         cache-dependency-path: moleculer-apis/package-lock.json
     - run: npm ci
-    - run: yarn jest
+    - run: MONGODB=mongo://localhost:27017/jianshu yarn jest
