@@ -12,6 +12,20 @@ export interface IArticle {
   content: string,
   image: string,
   updated: number,
+  words: number,
+}
+
+export interface IWriter {
+  _id: string,
+  name: string,
+  image: string,
+  words: number,
+  likes: number,
+}
+
+export async function loadWriters(): Promise<IWriter[]> {
+  let res = await axios.get(apiPath('/api/user/random'))
+  return res.data|| []
 }
 
 

@@ -59,9 +59,18 @@ a {
 .navbar-toggle {
   display: none;
 }
-
+/* 
 .cc .main-content {
-  width: 500px;
+  width: 625px;
+} */
+
+.with-side-content {
+  display: flex;
+  column-gap: 40px;
+}
+
+.with-side-content .main-content {
+  width: 625px;
 }
 
 @media (max-width: 1080px) {
@@ -80,17 +89,12 @@ a {
   .search-input:focus {
     width: 160px;
   }
+  
+  .with-side-content .main-content {
+    width: 500px;
+  }
 }
 
-.with-side-content {
-  display: flex;
-  column-gap: 40px;
-
-}
-
-.with-side-content .main-content {
-  width: 500px;
-}
 
 .with-side-content .side-content {
   flex-grow: 1;

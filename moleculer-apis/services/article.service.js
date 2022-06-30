@@ -11,7 +11,7 @@ module.exports = {
   settings: {},
   dependencies: [],
   mixins: [DbService],
-  adapter: new MongoDBAdapter("mongodb://192.168.5.43/jianshu-like"),
+  adapter: new MongoDBAdapter(process.env.MONGODB || "mongodb://192.168.5.43/jianshu-like"),
   collection: "articles",
   actions: {
     /**
@@ -75,7 +75,8 @@ module.exports = {
         paid: 23,
         content: 'content content content content content content content content ',
         image: '/images/article-card-default.jpg',
-        updated: 0
+        updated: 0,
+        words: 1024,
       }
       let updated = new Date().getTime()
 
