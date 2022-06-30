@@ -102,9 +102,11 @@ function apiPath(path: string) {
   return typeof window === 'undefined'
     ? getDefaultValue(process.env.NEXT_PUBLIC_API_BASE_BACKEND, 'http://localhost:3000') + path
     : getDefaultValue(process.env.NEXT_PUBLIC_API_BASE, 'http://localhost:3000') + path
+
+
+  function getDefaultValue(value: any, defaultValue: any) {
+    if (typeof value !== 'string') return defaultValue
+    return value.endsWith('/') ? value.substring(0, value.length - 1) : value
+  }
 }
 
-function getDefaultValue(value: any, defaultValue: any) {
-  if (typeof value === 'undefined') return defaultValue
-  return value
-}
