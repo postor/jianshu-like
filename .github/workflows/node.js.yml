@@ -47,7 +47,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Create mongo Docker container
-        id: build_mongo_docker
+        #id: build_mongo_docker
         uses: DigiPie/mongo-action@v1.0.1
         with:
           image-version: latest
