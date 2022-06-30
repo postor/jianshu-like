@@ -12,11 +12,14 @@ on:
 jobs:
   build:
 
+    defaults:
+      run:
+        working-directory: ./next-frontend
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -26,11 +29,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: build next.js app
-      working-directory: ./next-frontend
     - run: npm ci
     - run: npm run build 
-    - name: test moleculer
-      working-directory: ./moleculer-apis
-    - run: npm ci
-    - run: npm test
